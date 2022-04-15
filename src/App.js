@@ -4,41 +4,28 @@ import styles from "./styles/App.css";
 
 import Gen from "./json/Gen.json";
 function Hello() {
-  const [data, setData] = useState([]);
-  const getData = () => {
-    fetch(
-      { Gen },
-      {
-        headers: {
-          "Content-Type": "application/json",
-          Accept: "application/json",
-        },
-      }
-    )
-      .then(function (response) {
-        // console.log(response);
-        return response.json();
-      })
-      .then(function (myJson) {
-        // console.log(myJson);
-        setData(myJson);
-      });
-  };
-  useEffect(() => {
-    getData();
-  }, []);
-
-  // console.log(data);
   console.log(Gen);
 
   const [gemText, setGemText] = useState(" ");
   const [getSum, setGetSum] = useState(" ");
+  const [input, setInput] = useState("");
+
+  const [same, setSame] = useState(" ");
 
   // // const firstPasuk = Gen.text.map((x) => x.pasuk4);
   const handleChange = (e) => {
     setGemText(e.target.value);
     gemCalc();
   };
+
+  const handleChangeInput = (e) => {
+    setInput(e.target.value);
+  };
+
+  function getLength() {
+    var str = Gen.text.map((x) => x.pasuk1).toLocaleString();
+    return str.split(" ").map((a) => a.split(" ") + " \n");
+  }
 
   function gemCalc() {
     const alephBeis = {
@@ -91,8 +78,12 @@ function Hello() {
   // );
   console.log(getSum + "this is get sum");
   const gem = gematriya("ד");
-  const number = 203;
 
+  // if (number == getSum) {
+  //   setSame("same");
+  // } else {
+  //   setSame("diff");
+  // }
   return (
     <div className="app">
       <header className="hello">
@@ -100,7 +91,11 @@ function Hello() {
         {gem}
       </header>
 
-      {/* <input type="number" id="mynum" placeholder="הקלד מספר בין 1- 999:" /> */}
+      <input
+        type="number"
+        onChange={handleChangeInput}
+        placeholder="input a number"
+      />
       <textarea
         type="text"
         name="gematria"
@@ -112,9 +107,24 @@ function Hello() {
         cols="45"
         placeholder="הקלד בעברית"
       >
-        {Gen.text.map((x) => x.pasuk1).toLocaleString()}
+        {
+          Gen.text
+            .map((x) => x.pasuk1)
+            .toLocaleString()
+            .split(" ")[0]
+        }
       </textarea>
       <div>{getSum}</div>
+      <div>
+        {(() => {
+          if (input == getSum) {
+            return <p>same</p>;
+          } else {
+            return <p>diff</p>;
+          }
+        })()}
+      </div>
+      <div>{getLength()}</div>
     </div>
   );
 }
