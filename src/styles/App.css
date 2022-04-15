@@ -1,0 +1,41 @@
+.app {
+  text-align: center;
+}
+
+.hello {
+  height: 100%;
+  font-size: 100px;
+  color: green;
+  pointer-events: none;
+}
+
+#main-container {
+  position: relative;
+  width: 70%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+h1 {
+  font-family: "Secular One", sans-serif;
+}
+
+#mynum,
+#gemText {
+  font-family: sans-serif;
+  color: green;
+  font-size: 1.2rem;
+  padding: 10px;
+  border-radius: 5px;
+  direction: rtl;
+  border: 2px solid green;
+}
+
+#msg,
+#gem-sum {
+  margin-bottom: 30px;
+  font-size: 3rem;
+  font-weight: 700;
+  direction: rtl;
+  font-family: "Secular One", sans-serif;
+}

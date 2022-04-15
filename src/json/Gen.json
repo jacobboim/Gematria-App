@@ -1,0 +1,15 @@
+{
+  "title": "Genesis",
+  "versionSource": "http://www.tanach.us/Tanach.xml",
+  "heTitle": "בראשית",
+
+  "text": [
+    {
+      "pasuk1": "בראשית ברא אלהים את השמים ואת הארץ",
+      "pasuk2": "והארץ היתה תהו ובהו וחשך על־פני תהום ורוח אלהים מרחפת על־פני המים",
+      "pasuk3": "ויאמר אלהים יהי אור ויהי־אור",
+      "pasuk4": "hello my name is jacob"
+    }
+  ],
+  "sectionNames": ["Chapter", "Verse"]
+}
